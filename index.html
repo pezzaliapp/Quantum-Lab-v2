@@ -3,103 +3,318 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#080b16">
-<meta name="description" content="Quantum Lab: PWA bilingue per password quantistiche e analisi Bell, GHZ, Mermin e QRNG.">
+<meta name="theme-color" content="#070a14">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Quantum Lab: PWA bilingue e offline per password quantistiche e analisi Bell, GHZ, Mermin e QRNG. Nessun dato lascia il dispositivo.">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icons/icon-192.png">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
-<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+<link rel="stylesheet" href="css/app.css">
 <title>Quantum Lab</title>
 </head>
 <body>
+<a class="skip-link" href="#app" data-i18n="skipToContent">Vai al contenuto</a>
+
 <header class="topbar">
-  <button class="brand" data-go="home" aria-label="Quantum Lab home"><span class="orb"></span><span>Quantum Lab</span></button>
+  <button class="brand" data-go="home" data-i18n-aria="brandHome" aria-label="Quantum Lab home">
+    <span class="orb" aria-hidden="true"></span><span class="brand-name">Quantum Lab</span>
+  </button>
   <div class="top-actions">
     <button id="installBtn" class="ghost small" hidden data-i18n="install">Installa</button>
-    <div class="lang" aria-label="Language"><button data-lang="it">ITA</button><button data-lang="en">ENG</button></div>
+    <div class="lang" role="group" data-i18n-aria="langLabel" aria-label="Lingua">
+      <button type="button" data-lang="it" aria-pressed="true">IT</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
   </div>
 </header>
-<main id="app">
-  <section class="view active" id="view-home">
+
+<main id="app" tabindex="-1">
+
+  <!-- HOME -->
+  <section class="view active" id="view-home" aria-labelledby="home-title">
     <div class="hero">
       <p class="eyebrow" data-i18n="eyebrow">LABORATORIO QUANTISTICO · LOCALE</p>
-      <h1 data-i18n="heroTitle">Il quantum, finalmente leggibile.</h1>
-      <p data-i18n="heroText">Genera una password da misure quantistiche oppure analizza Bell, GHZ, Mermin e QRNG. Nessun dato lascia il dispositivo.</p>
+      <h1 id="home-title" data-i18n="heroTitle">Il quantum, finalmente leggibile.</h1>
+      <p class="lead" data-i18n="heroText">Esegui esperimenti su Quantum Inspire, importa i risultati e trasformali in informazioni comprensibili. Tutto resta sul tuo dispositivo.</p>
     </div>
     <div class="home-grid">
-      <button class="feature primary" data-go="password"><span class="num">01</span><h2 data-i18n="passwordTitle">Password quantistica</h2><p data-i18n="passwordDesc">Flusso guidato: circuito, risultati grezzi, password.</p><span class="arrow">→</span></button>
-      <button class="feature" data-go="experiments"><span class="num">02</span><h2 data-i18n="experimentsTitle">Esperimenti</h2><p data-i18n="experimentsDesc">Bell, GHZ, Mermin e QRNG in un unico laboratorio.</p><span class="arrow">→</span></button>
-      <button class="feature" data-go="analyze"><span class="num">03</span><h2 data-i18n="analyzeTitle">Analizza risultati</h2><p data-i18n="analyzeDesc">Incolla o importa dati e scegli l'analisi corretta.</p><span class="arrow">→</span></button>
-      <button class="feature" data-go="learn"><span class="num">04</span><h2 data-i18n="learnTitle">Come funziona</h2><p data-i18n="learnDesc">Concetti essenziali, senza formule inutili.</p><span class="arrow">→</span></button>
+      <button class="feature primary" data-go="password">
+        <span class="num">01</span>
+        <h2 data-i18n="passwordTitle">Password quantistica</h2>
+        <p data-i18n="passwordDesc">Flusso guidato: circuito, misure grezze, password.</p>
+        <span class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </button>
+      <button class="feature" data-go="experiments">
+        <span class="num">02</span>
+        <h2 data-i18n="experimentsTitle">Esperimenti</h2>
+        <p data-i18n="experimentsDesc">Bell, GHZ, Mermin e QRNG in un unico laboratorio.</p>
+        <span class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </button>
+      <button class="feature" data-go="analyze">
+        <span class="num">03</span>
+        <h2 data-i18n="analyzeTitle">Analizza risultati</h2>
+        <p data-i18n="analyzeDesc">Incolla o importa dati e scegli l'analisi corretta.</p>
+        <span class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </button>
+      <button class="feature" data-go="learn">
+        <span class="num">04</span>
+        <h2 data-i18n="learnTitle">Come funziona</h2>
+        <p data-i18n="learnDesc">Concetti essenziali, senza formule inutili.</p>
+        <span class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </button>
     </div>
   </section>
 
-  <section class="view" id="view-password">
-    <button class="back" data-go="home">← <span data-i18n="back">Home</span></button>
-    <div class="section-head"><p class="eyebrow">QUANTUM RANDOMNESS</p><h1 data-i18n="passwordTitle">Password quantistica</h1><p data-i18n="pwIntro">Tre passaggi. Le credenziali Quantum Inspire non entrano mai nell'app.</p></div>
-    <div class="steps">
-      <article class="step"><span>1</span><div><h3 data-i18n="stepOpen">Apri Quantum Inspire</h3><p data-i18n="stepOpenText">Accedi con il tuo account e crea un nuovo algoritmo.</p></div><a class="btn" href="https://www.quantum-inspire.com/" target="_blank" rel="noopener" data-i18n="openQI">Apri Quantum Inspire ↗</a></article>
-      <article class="step"><span>2</span><div><h3 data-i18n="stepCircuit">Usa il circuito QRNG</h3><p data-i18n="stepCircuitText">Otto qubit in sovrapposizione, poi misura ogni shot.</p></div><div class="row"><button class="ghost" id="copyCircuit" data-i18n="copyCircuit">Copia circuito</button><button class="ghost" id="downloadCircuit" data-i18n="downloadCircuit">Scarica circuito</button></div></article>
-      <pre id="circuit">version 3.0
+  <!-- PASSWORD -->
+  <section class="view" id="view-password" aria-labelledby="password-title">
+    <button class="back" data-go="home">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      <span data-i18n="back">Home</span>
+    </button>
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="pwEyebrow">CASUALITÀ QUANTISTICA</p>
+      <h1 id="password-title" data-i18n="passwordTitle">Password quantistica</h1>
+      <p class="lead" data-i18n="pwIntro">Tre passaggi. Le credenziali Quantum Inspire non entrano mai nell'app.</p>
+    </div>
+
+    <article class="step-card">
+      <div class="step-head"><span class="step-badge" aria-hidden="true">1</span><h2 data-i18n="stepOpen">Passaggio 1 — Esegui il QRNG</h2></div>
+      <p data-i18n="stepOpenText">Accedi a Quantum Inspire con il tuo account ed esegui il circuito qui sotto.</p>
+      <p class="field-label" data-i18n="circuitLabel">Circuito cQASM 3.0</p>
+      <pre id="circuit" tabindex="0">version 3.0
 qubit[8] q
 bit[8] b
 H q
 b = measure q</pre>
-      <article class="step"><span>3</span><div><h3 data-i18n="stepImport">Importa le misure grezze</h3><p data-i18n="stepImportText">Una stringa di bit per riga. Non usare il solo istogramma.</p></div><label class="filebtn"><span data-i18n="chooseFile">Scegli file</span><input id="pwFile" type="file" accept=".txt,.csv,.json"></label></article>
-    </div>
-    <textarea id="pwBits" data-i18n-placeholder="rawPlaceholder" placeholder="01101011&#10;10110001&#10;..."></textarea>
-    <div class="controls two"><label><span data-i18n="length">Lunghezza</span><input id="pwLen" type="number" min="8" max="64" value="16"></label><label><span data-i18n="characters">Caratteri</span><select id="pwCharset"><option value="alnum" data-i18n="alnum">Lettere e numeri</option><option value="ascii" data-i18n="ascii">Lettere, numeri e simboli</option><option value="ld" data-i18n="lowerNum">Minuscole e numeri</option></select></label></div>
-    <div class="row actionrow"><button class="btn" id="genQuantum" data-i18n="generateQuantum">Genera dai qubit</button><button class="ghost" id="genSecure" data-i18n="generateDevice">Genera dal dispositivo</button></div>
-    <div id="pwOut"></div>
+      <div class="row">
+        <a class="btn" id="openQI" href="https://www.quantum-inspire.com/" target="_blank" rel="noopener noreferrer">
+          <span data-i18n="openQI">Apri Quantum Inspire</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+        <button class="ghost" id="copyCircuit" data-i18n="copyCircuit">Copia circuito</button>
+        <button class="ghost" id="downloadCircuit" data-i18n="downloadCircuit">Scarica circuito</button>
+      </div>
+    </article>
+
+    <article class="step-card">
+      <div class="step-head"><span class="step-badge" aria-hidden="true">2</span><h2 data-i18n="stepImport">Passaggio 2 — Importa le misure</h2></div>
+      <p data-i18n="stepImportText">Incolla le misure oppure carica un file TXT, CSV o JSON.</p>
+      <label class="field-label sr-only" for="pwBits" data-i18n="stepImport">Passaggio 2 — Importa le misure</label>
+      <textarea id="pwBits" data-i18n-placeholder="rawPlaceholder" placeholder="01101011&#10;10110001&#10;..."></textarea>
+      <div class="row">
+        <label class="filebtn">
+          <span data-i18n="chooseFile">Scegli file</span>
+          <input id="pwFile" type="file" accept=".txt,.csv,.json,text/plain,text/csv,application/json">
+        </label>
+      </div>
+      <p class="status" id="pwImportStatus" role="status" data-i18n="importStatus">Formato: in attesa di dati.</p>
+    </article>
+
+    <article class="step-card">
+      <div class="step-head"><span class="step-badge" aria-hidden="true">3</span><h2 data-i18n="stepGenerate">Passaggio 3 — Genera la password</h2></div>
+      <div class="controls two">
+        <label><span data-i18n="length">Lunghezza (8–64)</span><input id="pwLen" type="number" min="8" max="64" value="16" inputmode="numeric"></label>
+        <label><span data-i18n="characters">Caratteri</span>
+          <select id="pwCharset">
+            <option value="alnum" data-i18n="alnum">Lettere e numeri</option>
+            <option value="ascii" data-i18n="ascii">Lettere, numeri e simboli</option>
+            <option value="ld" data-i18n="lowerNum">Minuscole e numeri</option>
+          </select>
+        </label>
+      </div>
+      <div class="row actionrow">
+        <button class="btn" id="genQuantum" data-i18n="generateQuantum">Genera dai qubit</button>
+        <button class="ghost" id="genSecure" data-i18n="generateDevice">Genera con il dispositivo</button>
+      </div>
+      <p class="status subtle" data-i18n="deviceNote">Alternativa locale: usa crypto.getRandomValues() del browser. Non è una sorgente quantistica.</p>
+      <div id="pwOut" aria-live="polite"></div>
+    </article>
   </section>
 
-  <section class="view" id="view-experiments">
-    <button class="back" data-go="home">← <span data-i18n="back">Home</span></button>
-    <div class="section-head"><p class="eyebrow">EXPERIMENTS</p><h1 data-i18n="experimentsTitle">Esperimenti</h1><p data-i18n="experimentsIntro">Scegli il tipo di esperimento. I campi di esempio mostrano subito il funzionamento.</p></div>
-    <div class="experiment-tabs"><button data-exp="bell" class="active">Bell · CHSH</button><button data-exp="ghz">GHZ</button><button data-exp="mermin">Mermin</button><button data-exp="qrng">QRNG</button></div>
-    <div id="exp-bell" class="exp active"><div class="grid4"><label>00<textarea id="b00">00 0.41
+  <!-- EXPERIMENTS -->
+  <section class="view" id="view-experiments" aria-labelledby="experiments-title">
+    <button class="back" data-go="home">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      <span data-i18n="back">Home</span>
+    </button>
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="experimentsEyebrow">ESPERIMENTI</p>
+      <h1 id="experiments-title" data-i18n="experimentsTitle">Esperimenti</h1>
+      <p class="lead" data-i18n="experimentsIntro">Scegli un esperimento.</p>
+    </div>
+
+    <div class="exp-cards" role="tablist" aria-label="Esperimenti">
+      <article class="exp-card active" data-exp-card="bell">
+        <h2>Bell · CHSH</h2>
+        <p data-i18n="expBellShort">Verifica se le correlazioni superano il limite classico.</p>
+        <p class="data-req" data-i18n="expBellData">Richiede: 4 istogrammi a 2 bit.</p>
+        <button class="ghost small" data-exp="bell" role="tab" aria-selected="true" data-i18n="openAnalysis">Apri analisi</button>
+      </article>
+      <article class="exp-card" data-exp-card="ghz">
+        <h2>GHZ</h2>
+        <p data-i18n="expGhzShort">Misura la probabilità sugli stati 000 e 111.</p>
+        <p class="data-req" data-i18n="expGhzData">Richiede: 1 istogramma a 3 bit.</p>
+        <button class="ghost small" data-exp="ghz" role="tab" aria-selected="false" data-i18n="openAnalysis">Apri analisi</button>
+      </article>
+      <article class="exp-card" data-exp-card="mermin">
+        <h2>Mermin <span class="badge" data-i18n="merminBadge">Analisi avanzata</span></h2>
+        <p data-i18n="expMerminShort">Combina quattro basi per sondare la coerenza GHZ.</p>
+        <p class="data-req" data-i18n="expMerminData">Richiede: 4 istogrammi a 3 bit.</p>
+        <button class="ghost small" data-exp="mermin" role="tab" aria-selected="false" data-i18n="openAnalysis">Apri analisi</button>
+      </article>
+      <article class="exp-card" data-exp-card="qrng">
+        <h2>QRNG</h2>
+        <p data-i18n="expQrngShort">Misura uniformità, entropia e bilanciamento.</p>
+        <p class="data-req" data-i18n="expQrngData">Richiede: 1 istogramma a N bit.</p>
+        <button class="ghost small" data-exp="qrng" role="tab" aria-selected="false" data-i18n="openAnalysis">Apri analisi</button>
+      </article>
+    </div>
+
+    <!-- Bell panel -->
+    <div id="exp-bell" class="exp active" role="tabpanel">
+      <h2 class="panel-title">Bell · CHSH</h2>
+      <p class="lead" data-i18n="bellIntro">Inserisci i quattro istogrammi a 2 bit.</p>
+      <div class="grid4">
+        <label>00<textarea id="b00">00 0.41
 01 0.09
 10 0.09
-11 0.41</textarea></label><label>01<textarea id="b01">00 0.09
+11 0.41</textarea></label>
+        <label>01<textarea id="b01">00 0.41
+01 0.09
+10 0.09
+11 0.41</textarea></label>
+        <label>10<textarea id="b10">00 0.41
+01 0.09
+10 0.09
+11 0.41</textarea></label>
+        <label>11<textarea id="b11">00 0.09
 01 0.41
 10 0.41
-11 0.09</textarea></label><label>10<textarea id="b10">00 0.41
-01 0.09
-10 0.09
-11 0.41</textarea></label><label>11<textarea id="b11">00 0.41
-01 0.09
-10 0.09
-11 0.41</textarea></label></div><button class="btn" id="runBell" data-i18n="calculateS">Calcola S</button><div id="bellOut"></div></div>
-    <div id="exp-ghz" class="exp"><textarea id="ghzZ">000 0.465
+11 0.09</textarea></label>
+      </div>
+      <button class="btn" id="runBell" data-i18n="calculateS">Calcola S</button>
+      <div id="bellOut" aria-live="polite"></div>
+    </div>
+
+    <!-- GHZ panel -->
+    <div id="exp-ghz" class="exp" role="tabpanel" hidden>
+      <h2 class="panel-title">GHZ</h2>
+      <p class="lead" data-i18n="ghzIntro">Inserisci l'istogramma a 3 bit in base ZZZ.</p>
+      <label class="field-label" for="ghzZ">ZZZ</label>
+      <textarea id="ghzZ">000 0.465
 001 0.004
 010 0.019
 011 0.009
 100 0.009
 101 0.013
 110 0.008
-111 0.473</textarea><button class="btn" id="runGhz" data-i18n="analyzeGHZ">Analizza GHZ</button><div id="ghzOut"></div></div>
-    <div id="exp-mermin" class="exp"><p class="note" data-i18n="merminHint">Inserisci tutti e quattro gli istogrammi prima del calcolo.</p><div class="grid4"><label>XXX<textarea id="mXXX"></textarea></label><label>XYY<textarea id="mXYY"></textarea></label><label>YXY<textarea id="mYXY"></textarea></label><label>YYX<textarea id="mYYX"></textarea></label></div><button class="btn" id="runMermin" data-i18n="calculateM">Calcola M</button><div id="merminOut"></div></div>
-    <div id="exp-qrng" class="exp"><textarea id="rngH">00 0.24
+111 0.473</textarea>
+      <button class="btn" id="runGhz" data-i18n="analyzeGHZ">Analizza GHZ</button>
+      <div id="ghzOut" aria-live="polite"></div>
+    </div>
+
+    <!-- Mermin panel -->
+    <div id="exp-mermin" class="exp" role="tabpanel" hidden>
+      <h2 class="panel-title">Mermin <span class="badge" data-i18n="merminBadge">Analisi avanzata</span></h2>
+      <p class="lead" data-i18n="merminIntro">Richiede i quattro istogrammi a 3 bit.</p>
+      <p class="note" id="merminHint" data-i18n="merminHint">Inserisci tutti e quattro gli istogrammi prima di calcolare.</p>
+      <div class="grid4">
+        <label>XXX<textarea id="mXXX"></textarea></label>
+        <label>XYY<textarea id="mXYY"></textarea></label>
+        <label>YXY<textarea id="mYXY"></textarea></label>
+        <label>YYX<textarea id="mYYX"></textarea></label>
+      </div>
+      <button class="btn" id="runMermin" data-i18n="calculateM">Calcola M</button>
+      <div id="merminOut" aria-live="polite"></div>
+    </div>
+
+    <!-- QRNG panel -->
+    <div id="exp-qrng" class="exp" role="tabpanel" hidden>
+      <h2 class="panel-title">QRNG</h2>
+      <p class="lead" data-i18n="qrngIntro">Inserisci un istogramma o misure grezze.</p>
+      <label class="field-label" for="rngH" data-i18n="qrngOutcomes">Esiti osservati</label>
+      <textarea id="rngH">00 0.24
 01 0.26
 10 0.25
-11 0.25</textarea><button class="btn" id="runRng" data-i18n="analyzeRandomness">Analizza casualità</button><div id="rngOut"></div></div>
+11 0.25</textarea>
+      <button class="btn" id="runRng" data-i18n="analyzeRandomness">Analizza casualità</button>
+      <div id="rngOut" aria-live="polite"></div>
+    </div>
   </section>
 
-  <section class="view" id="view-analyze">
-    <button class="back" data-go="home">← <span data-i18n="back">Home</span></button>
-    <div class="section-head"><p class="eyebrow">IMPORT</p><h1 data-i18n="analyzeTitle">Analizza risultati</h1><p data-i18n="analyzeIntro">Importa TXT, CSV o JSON. L'app prova a riconoscere misure grezze o istogrammi.</p></div>
-    <label class="drop"><input id="anFile" type="file" accept=".txt,.csv,.json"><strong data-i18n="dropTitle">Seleziona un file</strong><span data-i18n="dropText">oppure incolla i dati qui sotto</span></label>
+  <!-- ANALYZE -->
+  <section class="view" id="view-analyze" aria-labelledby="analyze-title">
+    <button class="back" data-go="home">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      <span data-i18n="back">Home</span>
+    </button>
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="analyzeEyebrow">IMPORTA</p>
+      <h1 id="analyze-title" data-i18n="analyzeTitle">Analizza risultati</h1>
+      <p class="lead" data-i18n="analyzeIntro">Importa TXT, CSV o JSON. L'app riconosce il formato.</p>
+    </div>
+    <label class="drop">
+      <input id="anFile" type="file" accept=".txt,.csv,.json,text/plain,text/csv,application/json">
+      <strong data-i18n="dropTitle">Seleziona un file</strong>
+      <span data-i18n="dropText">oppure incolla i dati qui sotto</span>
+    </label>
     <textarea id="anText" data-i18n-placeholder="importPlaceholder" placeholder="Incolla qui i risultati..."></textarea>
-    <div class="row"><button class="btn" id="detectData" data-i18n="detect">Riconosci dati</button></div><div id="detectOut"></div>
+    <div class="row"><button class="btn" id="detectData" data-i18n="detect">Riconosci dati</button></div>
+    <div id="detectOut" aria-live="polite"></div>
   </section>
 
-  <section class="view" id="view-learn">
-    <button class="back" data-go="home">← <span data-i18n="back">Home</span></button>
-    <div class="section-head"><p class="eyebrow">LEARN</p><h1 data-i18n="learnTitle">Come funziona</h1><p data-i18n="learnIntro">Quattro concetti per capire cosa stai misurando.</p></div>
-    <div class="learn-grid"><article><h2>Bell · CHSH</h2><p data-i18n="learnBell">Verifica se le correlazioni osservate superano il limite classico S = 2.</p></article><article><h2>GHZ</h2><p data-i18n="learnGHZ">Controlla quanta probabilità resta concentrata sugli stati 000 e 111.</p></article><article><h2>Mermin</h2><p data-i18n="learnMermin">Con quattro basi di misura verifica la coerenza quantistica dello stato GHZ.</p></article><article><h2>QRNG</h2><p data-i18n="learnQRNG">Misura uniformità, entropia e bilanciamento dei bit prodotti.</p></article></div>
+  <!-- LEARN -->
+  <section class="view" id="view-learn" aria-labelledby="learn-title">
+    <button class="back" data-go="home">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      <span data-i18n="back">Home</span>
+    </button>
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="learnEyebrow">COME FUNZIONA</p>
+      <h1 id="learn-title" data-i18n="learnTitle">Come funziona</h1>
+      <p class="lead" data-i18n="learnIntro">Dal circuito all'analisi, in quattro passaggi.</p>
+    </div>
+    <ol class="learn-steps">
+      <li><h2 data-i18n="learnStep1Title">1 · Prepara il circuito</h2><p data-i18n="learnStep1Text"></p></li>
+      <li><h2 data-i18n="learnStep2Title">2 · Eseguilo su Quantum Inspire</h2><p data-i18n="learnStep2Text"></p></li>
+      <li><h2 data-i18n="learnStep3Title">3 · Esporta o copia i risultati</h2><p data-i18n="learnStep3Text"></p></li>
+      <li><h2 data-i18n="learnStep4Title">4 · Analizzali localmente</h2><p data-i18n="learnStep4Text"></p></li>
+    </ol>
+    <div class="notes">
+      <h2 data-i18n="learnNotesTitle">Cosa tenere presente</h2>
+      <ul>
+        <li data-i18n="learnNote1"></li>
+        <li data-i18n="learnNote2"></li>
+        <li data-i18n="learnNote3"></li>
+        <li data-i18n="learnNote4"></li>
+        <li data-i18n="learnNote5"></li>
+      </ul>
+    </div>
   </section>
 </main>
-<footer><span>Quantum Lab v2</span><span data-i18n="footer">Offline · Open source · Nessun tracciamento</span></footer>
-<script src="app.js"></script>
+
+<footer>
+  <span class="brand-small">Quantum Lab v2.1</span>
+  <span data-i18n="footerTagline">Offline · Open source · Nessun tracciamento</span>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/parser.js"></script>
+<script src="js/analyses.js"></script>
+<script src="js/password.js"></script>
+<script src="js/import.js"></script>
+<script src="js/router.js"></script>
+<script src="js/pwa.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
