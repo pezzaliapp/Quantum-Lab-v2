@@ -1,0 +1,16 @@
+# OS / editor junk
+.DS_Store
+._*
+__MACOSX/
+Thumbs.db
+
+# Dependencies / build / test tooling (not part of this static app)
+node_modules/
+*.log
+
+# Archives / local artifacts
+*.zip
+
+# Local test reports and screenshots
+QA_REPORT.md
+/docs/
